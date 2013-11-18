@@ -1,0 +1,7 @@
+POST / HTTP/1.1
+Host:
+Connection: close
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 0
+
+title=test" or $INJECT and "1"="1

