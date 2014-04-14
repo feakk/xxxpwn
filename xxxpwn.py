@@ -456,6 +456,9 @@ def attack(inject):
 	# Automatically Update Host header if present
 	if re.search('Host:', request, args.match_case):
 		request = re.sub(r"Host:\s*\S*", 'Host: %s' % args.host, request, args.match_case)
+	# Change Accept-Encoding header value to none if present - DC 4/14/14
+	if re.search('Accept-Encoding:', request, args.match_case):
+		request = re.sub(r"Accept-Encoding:\s*.*", 'Accept-Encoding: none', request, args.match_case)
 	# If Content-Length is present, assume HTTP and automatically update
 	if re.search('Content-Length:', request, args.match_case):
 		# Split head and content, matching HTTP newline variants of \r and \n
