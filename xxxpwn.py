@@ -459,6 +459,12 @@ def attack(inject):
 	# Change Accept-Encoding header value to none if present - DC 4/14/14
 	if re.search('Accept-Encoding:', request, args.match_case):
 		request = re.sub(r"Accept-Encoding:\s*.*", 'Accept-Encoding: none', request, args.match_case)
+	# Change Connection header value to close if present - DC 4/24/14
+	if re.search('Connection:', request, args.match_case):
+		request = re.sub(r"Connection:\s*.*", 'Connection: close', request, args.match_case)
+	else:
+		# Add Connection: close if no Connection header is present
+		request = re.sub(r'(.*?)(\r?\n){2}(.*)', r'\1\2Connection:close\2\2\3', request, 1, re.MULTILINE|re.DOTALL)
 	# If Content-Length is present, assume HTTP and automatically update
 	if re.search('Content-Length:', request, args.match_case):
 		# Split head and content, matching HTTP newline variants of \r and \n
