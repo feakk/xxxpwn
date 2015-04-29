@@ -1,0 +1,2 @@
+GET /?xpath=test'+or+$INJECT+and+'1'='1 HTTP/1.1
+Host: localhost
